@@ -1,8 +1,12 @@
 import { createTheme } from "@mui/material/styles";
-import { Bebas_Neue } from "next/font/google";
+import { Bebas_Neue, Manrope } from "next/font/google";
 
 
 export const bebasNeue = Bebas_Neue({
+    subsets: ["latin"],
+    weight: ["400"],
+});
+export const manrope = Manrope({
     subsets: ["latin"],
     weight: ["400"],
 });
@@ -16,6 +20,5 @@ const theme = createTheme({
     fontFamily: "Roboto, Arial, sans-serif",
   },
 });
-
 
 export default theme;

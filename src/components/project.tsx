@@ -66,13 +66,12 @@ const ProjectCard: React.FC<{
           display: "flex",
           flexDirection: "column",
           justifyContent: "center",
-          
           gap: "1.5rem",
           marginLeft: { lg: "1.5rem", xs: "0" },
           marginTop: { lg: "4rem", xs: "1rem" },
         }}
       >
-        <Stack direction="column" >
+        <Stack >
             <Typography
               sx={{
                 fontSize: { lg: "2.4rem", xs: "2rem" },

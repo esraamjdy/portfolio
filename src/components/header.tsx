@@ -38,7 +38,7 @@ export default function Header() {
           </Link>
         </Typography>
         <Box sx={{ display: "flex", gap: "1.3rem" }} >
-          <Button component={Link} href="/about" sx={{ color: "#C7C7C7", fontFamily: inter.style.fontFamily, fontSize: "0.8rem"}}>
+          <Button component={Link} href="/About" sx={{ color: "#C7C7C7", fontFamily: inter.style.fontFamily, fontSize: "0.8rem"}}>
             About   
           </Button>
           <Button component={Link} href="/projects" sx={{ color: "#C7C7C7", fontFamily: inter.style.fontFamily, fontSize: "0.8rem"}}>

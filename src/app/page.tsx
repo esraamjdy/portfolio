@@ -1,5 +1,6 @@
 "use client";
 
+import About from "@/components/About";
 import FeatureProjects from "@/components/featuredProjects";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
@@ -15,6 +16,10 @@ export default function HomePage() {
       <Hero />
       <Divider sx={{borderColor: "#484848"}}/>
       <FeatureProjects />
+      <Divider sx={{borderColor: "#484848"}}/>
+      <About />      
+      <Divider sx={{borderColor: "#484848"}}/>
+
     </div>
   );
 }
