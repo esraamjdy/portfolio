@@ -1,4 +1,11 @@
 import { createTheme } from "@mui/material/styles";
+import { Bebas_Neue } from "next/font/google";
+
+
+export const bebasNeue = Bebas_Neue({
+    subsets: ["latin"],
+    weight: ["400"],
+});
 
 const theme = createTheme({
   palette: {
@@ -9,5 +16,6 @@ const theme = createTheme({
     fontFamily: "Roboto, Arial, sans-serif",
   },
 });
+
 
 export default theme;
