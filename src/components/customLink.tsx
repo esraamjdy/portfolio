@@ -19,10 +19,12 @@ const CustomLink: React.FC<{ children: ReactNode; link: string }> = ({
         paddingBottom: "4px",
         display: "flex",
         alignItems: "center",
-        fontWeight: "700",
-        fontSize: "1.3rem",
+        fontWeight: "600",
+        fontSize: "1rem",
         color:"#FF0080",
         width: "fit-content",
+        letterSpacing:"0.1rem",
+
       }}
       href={link}
     >

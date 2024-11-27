@@ -24,9 +24,8 @@ const initialProjects = [
     description: "A cross-platform mobile app built with Flutter which detects Autism and provides a user-friendly interface. I used 2 AI models to detect Autism by two different methods either using images or filling a form. Flask was used for the backend.",
     year: "2023",
     role: "Mobile Developer",
-    demoLink: "https://mobileapp.com",
     githubLink: "https://github.com/username/mobile-app",
-    image: "/mobile.jpg",
+    image: "/autism.jpg",
     type: "Mobile Development", "backend": "AI"
   },
   {
@@ -35,9 +34,8 @@ const initialProjects = [
     description: "A full-stack e-commerce website built with HTML, CSS, JavaScript and Flask with Python for the backend.",
     year: "2022",
     role: "Full Stack Developer",
-    demoLink: "https://ecommerce.com",
     githubLink: "https://github.com/username/ecommerce",
-    image: "/ecommerce.jpg",
+    image: "/HRMS.jpg",
     type: "Web Development",
   },
 ];
@@ -56,7 +54,7 @@ export default function FeaturedProjects() {
 
   return (
     <Box sx={{ backgroundColor: "black", color: "white", padding: "3rem",}}>
-      <Stack direction="row" gap={"8rem"} >
+      <Stack direction="row" gap={"25rem"} >
           <Typography
             variant="h4"
             sx={{
@@ -66,7 +64,8 @@ export default function FeaturedProjects() {
               fontSize: "4.75rem",
               fontFamily: bebasNeue.style.fontFamily,
               color: "#FFFFFF",
-              gap: "2rem"
+              gap: "2rem",
+              marginLeft:{ xs: "0", md: "2.5rem" },
             }}
           >
             Featured Projects

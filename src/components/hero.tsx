@@ -25,9 +25,9 @@ export default function Hero() {
       justifyContent="space-between"
       sx={{
         display: "flex",
-        backgroundColor: "#000", // خلفية سوداء
-        padding: { xs: "2rem", md: "4rem" }, // مسافات داخلية متناسبة مع الأجهزة المختلفة
-        gap: { xs: "3rem", md: "0" }, // مسافة بين النص والصورة
+        backgroundColor: "#000", 
+        padding: { xs: "2rem", md: "4rem" }, 
+        gap: { xs: "3rem", md: "11rem" }, 
       }}
     >
       {/* Left Section */}
@@ -36,7 +36,8 @@ export default function Hero() {
           flex: 1,
           maxWidth: "600px",
           color: "white",
-          textAlign: { xs: "center", md: "left" }, // توسيط النصوص في الأجهزة الصغيرة
+          textAlign: { xs: "center", md: "left" }, 
+          marginLeft: { xs: 0, md: "2.5rem" },
         }}
       >
         <Typography
@@ -47,6 +48,7 @@ export default function Hero() {
             color: "#fff",
             fontFamily: bebasNeue.style.fontFamily,
             lineHeight: "1",
+            
           }}
         >
           Hello, I AM <br /> Esraa Magdy.

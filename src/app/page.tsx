@@ -5,6 +5,7 @@ import FeatureProjects from "@/components/featuredProjects";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
 import { Divider } from "@mui/material";
+import Connect from "@/components/Contact";
 
 
 
@@ -19,7 +20,7 @@ export default function HomePage() {
       <Divider sx={{borderColor: "#484848"}}/>
       <About />      
       <Divider sx={{borderColor: "#484848"}}/>
-
+      <Connect />
     </div>
   );
 }

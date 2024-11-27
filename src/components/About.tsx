@@ -27,6 +27,7 @@ export default function About() {
             fontFamily: bebasNeue.style.fontFamily,
             color: "#FFFFFF",
             lineHeight: "1.2",
+            marginRight: { xs: 0, md: "2.5rem" },
           }}
         >
           About Me
