@@ -1,3 +1,4 @@
+import { manrope } from "@/theme/theme";
 import { Button } from "@mui/material";
 
 export const CustomButton = ({
@@ -27,10 +28,11 @@ export const CustomButton = ({
         display: "flex",
         alignItems: "center",
         gap: "10px",
-        fontFamily: "Manrope, sans-serif",
+        fontFamily: manrope.style.fontFamily,
         "&:hover": {
           backgroundColor: "pink",
         },
+        ...sx
       }}
     >
       {label}

@@ -7,7 +7,7 @@ import { CustomButton } from "./customButton";
 
 const Connect = () => {
   return (
-    <Box
+    <Box id="contact"
       sx={{
         padding: { xs: "4rem", lg: "8rem" },
         paddingTop: { xs: "2rem", lg: "4rem" },
@@ -57,7 +57,7 @@ const Connect = () => {
             <Link
               style={{
                 color: "#FFF",
-                borderBottom: "1px solid #FF4081",
+                borderBottom: "1px solid #FF0080",
               }}
               href="mailto:esraamjdy@gmail.com"
             >
@@ -77,7 +77,7 @@ const Connect = () => {
             <Link
                style={{
                 color: "#FFF",
-                borderBottom: "1px solid #FF4081",
+                borderBottom: "1px solid #FF0080",
               }}
               href="https://drive.google.com/file/d/1Z731pnI5hKtc-zv3TvisTfz5leYUqQ-s/view?usp=sharing"
             >
@@ -100,7 +100,7 @@ const Connect = () => {
                 },
               }}
             >
-              <FaGithub size={25} color="#FF4081" />
+              <FaGithub size={25} color="#FF0080" />
             </IconButton>
           </Link>
           <Link href="https://www.linkedin.com/in/esraamjdy/">
@@ -112,7 +112,7 @@ const Connect = () => {
                 },
               }}
             >
-              <FaLinkedinIn size={25} color="#FF4081" />
+              <FaLinkedinIn size={25} color="#FF0080" />
             </IconButton>
           </Link>
         </Stack>

@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function About() {
   return (
-    <Box
+    <Box id="about"
       sx={{
         backgroundColor: "#000",
         padding: { xs: "2rem", md: "4rem 8rem" }, 
@@ -62,7 +62,7 @@ export default function About() {
             Learning more to improve my skill.
           </Typography>
 
-          <CustomLink link="/About">
+          <CustomLink link="/about">
                 MORE ABOUT ME
           </CustomLink>
 

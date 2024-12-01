@@ -15,7 +15,7 @@ const initialProjects = [
     role: "Front-end Developer",
     demoLink: "https://portfolio.com",
     githubLink: "https://github.com/username/portfolio",
-    image: "/portfolio.jpg",
+    image: "/portfolio.webp",
     type: "Web Development",
   },
   {
@@ -53,7 +53,7 @@ export default function FeaturedProjects() {
   }, [selectedType]);
 
   return (
-    <Box sx={{ backgroundColor: "black", color: "white", padding: "3rem",}}>
+    <Box sx={{ backgroundColor: "black", color: "white", padding: "3rem",}} id="projects">
       <Stack direction="row" gap={"25rem"} >
           <Typography
             variant="h4"

@@ -134,7 +134,7 @@ export default function Hero() {
         }}
       >
         <Image
-          src="/image.jpg"
+          src="/profile.jpg"
           alt="esraa"
           width={500}
           height={600}
