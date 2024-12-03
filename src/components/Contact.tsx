@@ -31,8 +31,7 @@ const Connect = () => {
         // alignItems: "flex-start",
         // gap: { xs: "4rem", lg: "0rem" },
       }}
-      xs={12}
-      lg={12}
+      size={{ xs: 12, lg: 12 }}
       spacing={2}
     >
       <Grid  size={{ xs: 12, lg: 4 }}>
