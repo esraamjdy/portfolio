@@ -11,13 +11,15 @@ export const CustomButton = ({
   onClick?: () => void;
   icon?: React.ReactNode;
   sx?: object;
+  type?: "submit" | "reset" | "button";
 }) => {
   return (
     <Button
       variant="contained"
       onClick={onClick}
+      
       sx={{
-        backgroundColor: "#FF0080",
+        backgroundColor: "linear-gradient(45deg, #FF0080, #7700FF)",
         color: "black",
         padding: "10px 20px",
         fontSize: "16px",

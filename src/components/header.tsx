@@ -23,6 +23,7 @@ export default function Header() {
         marginTop: "-30px",
         zIndex: 1100,
       }}
+      
     >
       <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
         {/* العنوان الرئيسي */}
@@ -36,10 +37,10 @@ export default function Header() {
           }}
         >
           <ScrollLink
-            to="home" // id الخاص بالقسم
+            to="home" 
             spy={true}
             smooth={true}
-            offset={-70} // تعويض الهيدر الثابت
+            offset={-70} 
             duration={500}
             style={{
               backgroundColor: "inherit",

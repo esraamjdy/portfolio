@@ -9,18 +9,21 @@ const FormField: React.FC<{
   label: string;
   name: string;
   type?: string;
-}> = ({ multiline = false, label, name, type = "text" }) => {
+  error?: boolean;
+  helperText?: string; // Make sure helperText is a string or undefined
+}> = ({ multiline = false, label, name, type = "text", error, helperText }) => {
   return (
     <TextField
       multiline={multiline}
       name={name}
       type={type}
+      error={error}
+      helperText={helperText as string | undefined} // Type casting to string or undefined
       sx={{
         backgroundColor: "#1A1A1A",
-        width: "100%", 
-        maxWidth: "50rem", 
+        width: { xs: "30rem", lg: "50rem" },
+        borderRadius: "8px",
         marginBottom: "2.4rem",
-        boxSizing: "border-box", 
         "& .MuiInputLabel-root": {
           color: "#C7C7C7",
           fontSize: "1.6rem",
@@ -33,7 +36,7 @@ const FormField: React.FC<{
           color: "#FFFFFF",
           borderRadius: "8px",
           height: multiline ? "auto" : "5rem",
-          minHeight: multiline ? "13.2rem" : "5rem",
+          minHeight: multiline ? "13.2rem" : "5rem", // For multiline textareas
           padding: multiline ? "1.2rem" : "1.5rem",
           fontSize: "1.8rem",
           fontWeight: 400,
@@ -49,9 +52,11 @@ const FormField: React.FC<{
         "& .MuiFilledInput-underline:after": {
           borderBottomColor: "#FFFFFF",
         },
+        "& .MuiOutlinedInput-notchedOutline": {
+          border: "none", // Remove border outline in filled variant
+        },
       }}
       label={label}
-      variant="filled"
     />
   );
 };
