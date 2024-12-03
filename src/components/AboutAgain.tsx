@@ -5,9 +5,30 @@ import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import { MdDownloadForOffline } from "react-icons/md";
 import Image from "next/image";
 import { CustomButton } from "./customButton";
+import { motion } from "framer-motion";
+import { div } from "framer-motion/client";
 
+const buttonVariant = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1, transition: { duration: 0.4 } },
+  };
+  
+  const hoverEffect = {
+    whileHover: { scale: 1.1, rotate: 2, transition: { duration: 0.3 } },
+  };
 
+  const iconVariant = {
+    hidden: { opacity: 0, x: -30 },
+    visible: (i: number) => ({
+      opacity: 1,
+      x: 0,
+      transition: { duration: 0.3, delay: i * 0.1 },
+    }),
+  };
 
+  const shakeEffect = {
+    whileHover: { x: [-5, 5, -5, 5, 0], transition: { duration: 0.5 } },
+  };
 
   
 export default function AboutAgain() {
@@ -65,37 +86,79 @@ export default function AboutAgain() {
                Currently, I’m exploring Reactjs, Nextjs, Typescript, Python and a bit of Designing. 
                While I am not a programmer, I enjoy drawing, photography, and cooking. Learning more to improve my skill.
             </Typography>
-
             <Stack direction="row" spacing={3} margin={"auto"}>
-              <Link href="/resume.pdf" passHref>
-              <CustomButton
-                label="Download Resume"
-                icon={<MdDownloadForOffline size={20} />}
-                onClick={handleDownload}
-                sx={{
-                  fontSize: "0.8rem", 
-                  padding: "8px 16px",
-                  width: "fit-content",
-                  "&:hover": { backgroundColor: "484848" },
-                }}
+            <motion.div variants={buttonVariant}>
+            <Stack direction="row" spacing={3} margin={"auto"}>
+              <Link href="/resume.pdf" passHref></Link>
+              <motion.div {...hoverEffect}>
+                <CustomButton 
+                  label="Download Resume"
+                  icon={<MdDownloadForOffline size={20} />}
+                  onClick={handleDownload}
+                  
+                  sx={{
+                    background: "linear-gradient(45deg, #FF0080, #7700FF)",
+                    color: "white",
+                    padding: "0.8rem 2rem",
+                    fontSize: "1rem",
+                    borderRadius: "50px",
+                    width: "fit-content",
+                    "&:hover": {
+                      background: "linear-gradient(45deg, #7700FF, #FF0080)",
+                    },
+                  }}
                 />
-              </Link>
-              <Link href="https://linkedin.com" passHref>
-                <IconButton sx={{ backgroundColor: "black", "&:hover": { backgroundColor: "484848" }}}>
-                  <FaLinkedinIn color="#FF0080" size={32}/>
-                </IconButton>
-              </Link>
-              <Link href="https://github.com" passHref>
-                <IconButton sx={{ backgroundColor: "black", "&:hover": { backgroundColor: "484848" } }}>
-                  <FaGithub color="#FF0080" size={32}/>
-                </IconButton>
-              </Link>
+              </motion.div>
+            </Stack>
+          </motion.div>
+              
+              
+              {
+[
+                {
+                    link:"https://linkedin.com",
+                    Icon: FaLinkedinIn
+
+                },
+                    {
+                    link:"https://github.com",
+                    Icon: FaGithub
+
+                },
+
+                ].map((item) => (
+                    <Link href={item.link} passHref key={item.link}>
+                        <motion.div
+                            variants={iconVariant}
+                            custom={item}
+                            {...shakeEffect}
+                        >
+                            <IconButton sx={{
+                                borderRadius: "50%",
+                                backgroundColor: "#222",
+                                width: "50px",
+                                height: "50px",
+                                color: "#FF0080",
+                                "&:hover": { backgroundColor: "#FF0080", color: "#222" },
+                            }}>
+                                <item.Icon 
+                                    size={32}
+                                    
+                                />
+                                
+                            </IconButton>
+                        </motion.div>
+                        </Link>
+                ))
+
+              }
+              </Stack>
+             
             </Stack>
           </Stack>
         </Stack>
 
         
-      </Stack>
     </div>
   );
 }

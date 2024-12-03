@@ -1,24 +1,42 @@
 import { Box, Stack, Typography, IconButton } from "@mui/material";
 import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
 import FormField from "./FormField";
 import { manrope, bebasNeue } from "../theme/theme";
 import { CustomButton } from "./customButton";
+import { motion } from "framer-motion";
+import { sendEmail } from "@/api/sendEmail";
+import ConnectForm from "./ConnectForm";
+import Grid from '@mui/material/Grid2';
+
+
+const hoverEffect = {
+  whileHover: { scale: 1.1, rotate: 2, transition: { duration: 0.3 } },
+};
 
 const Connect = () => {
+
   return (
-    <Box id="contact"
+    <Grid 
+    container
+      id="contact"
       sx={{
         padding: { xs: "4rem", lg: "8rem" },
         paddingTop: { xs: "2rem", lg: "4rem" },
         backgroundColor: "#000",
-        display: "flex",
-        flexDirection: { xs: "column reverse", lg: "row" },
-        justifyContent: "space-between",
-        alignItems: "flex-start",
-        gap: { xs: "4rem", lg: "0rem" },
+        // display: "flex",
+        // flexDirection: { xs: "column-reverse", lg: "row" },
+        // justifyContent: "space-between",
+        // alignItems: "flex-start",
+        // gap: { xs: "4rem", lg: "0rem" },
       }}
+      xs={12}
+      lg={12}
+      spacing={2}
     >
+      <Grid  size={{ xs: 12, lg: 4 }}>
+
       <Stack
         direction={"column"}
         sx={{
@@ -29,8 +47,7 @@ const Connect = () => {
           gap: "2.5rem",
         }}
       >
-        <Stack direction="column" gap="0.5rem"
-        >
+        <Stack direction="column" gap="0.5rem">
           <Typography
             variant="h1"
             sx={{
@@ -75,7 +92,7 @@ const Connect = () => {
           >
             For more info,{" "}
             <Link
-               style={{
+              style={{
                 color: "#FFF",
                 borderBottom: "1px solid #FF0080",
               }}
@@ -129,40 +146,14 @@ const Connect = () => {
           © 2024 Esraa Magdy
         </Typography>
       </Stack>
+      </Grid>
 
-      <Box
-        sx={{
-          flex: 1,
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "space-between",
-          height: "100%",
-          maxWidth: "500px",
-        }}
-      >
-        <form
-          action={"https://formsubmit.co/1f6b7d3e9e1e5e1e1e1e1e1e1e1"}
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            gap: "2.4rem",
-            width: "100%",
-          }}
-        >
-          <FormField label="Name" name="name" />
-          <FormField type="email" label="Email" name="email" />
-          <FormField label="Subject" name="subject" />
-          <FormField label="Message" name="message" multiline={true} />
-          <CustomButton
-            label="Submit"
-            onClick={() => {}}
-            icon={null}
-            sx={{ marginTop: "20px" }}
-          />
-        </form>
-        
-      </Box>
-    </Box>
+      <Grid   size={{ xs: 12, lg: 8 }}>
+      <ConnectForm />
+
+      </Grid>
+      
+    </Grid>
   );
 };
 

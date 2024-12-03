@@ -17,13 +17,13 @@ const ProjectCard: React.FC<{
   description: string;
   year: string;
   role: string;
-  demo?: string; // جعل الرابط اختياريًا
+  demo?: string; 
   repo: string;
 }> = ({ image, title, projectType, description, year, role, demo, repo }) => {
   return (
     <Box
       sx={{
-        backgroundColor: "#000",
+        backgroundColor: "#111", 
         width: "100%",
         height: "auto",
         borderRadius: "1.6rem",
@@ -32,6 +32,11 @@ const ProjectCard: React.FC<{
         padding: "3rem",
         gap: "3rem",
         fontFamily: manrope.style.fontFamily,
+        transition: "transform 0.3s ease, box-shadow 0.3s ease", 
+        "&:hover": {
+          transform: "scale(1.05)", 
+          boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)", 
+        },
       }}
     >
       <Box
@@ -43,6 +48,7 @@ const ProjectCard: React.FC<{
           backgroundColor: "#333333",
           borderRadius: "1.2rem",
           padding: "1rem",
+          overflow: "hidden", 
         }}
       >
         <Image
@@ -55,6 +61,7 @@ const ProjectCard: React.FC<{
             width: "100%",
             height: "auto",
             objectFit: "cover",
+            transition: "transform 0.3s ease",
           }}
         />
       </Box>
@@ -175,7 +182,7 @@ const ProjectCard: React.FC<{
               marginTop: "2rem",
             }}
           >
-            {demo && ( // عرض الرابط فقط إذا كان موجودًا
+            {demo && ( 
               <CustomLink
                 link={demo}
                 children={
@@ -211,7 +218,7 @@ const ProjectCard: React.FC<{
         </Stack>
       </Box>
     </Box>
-  );
+  );  
 };
 
 export default ProjectCard;
