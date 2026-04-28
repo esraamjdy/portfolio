@@ -5,7 +5,6 @@ import { Box, Typography, Stack, IconButton } from "@mui/material";
 import { CustomButton } from "@/components/customButton";
 import { FaCircle } from "react-icons/fa";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { Link as ScrollLink } from "react-scroll";
 
 const bebasNeue = Bebas_Neue({
@@ -47,30 +46,8 @@ const iconVariant = {
   }),
 };
 
-const rotateImage = {
-  hidden: { opacity: 0, scale: 0.8 },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    transition: { duration: 0.5, delay: 0.2 },
-  },
-  whileHover: {
-    scale: 1.05,
-    rotate: [0, 10, -10, 0],
-    transition: { duration: 0.6 },
-  },
-};
-
 const shakeEffect = {
   whileHover: { x: [-5, 5, -5, 5, 0], transition: { duration: 0.5 } },
-};
-
-const explodeEffect = {
-  whileTap: {
-    scale: [1, 1.5, 1],
-    rotate: [0, 45, 0],
-    transition: { duration: 0.4 },
-  },
 };
 
 export default function Hero() {
@@ -79,7 +56,14 @@ export default function Hero() {
       variants={containerVariant}
       initial="hidden"
       animate="visible"
-      style={{ backgroundColor: "#000", padding: "4rem", overflow: "hidden" }}
+      style={{
+        background: "linear-gradient(135deg, #000 0%, #111 100%)",
+        padding: "4rem",
+        overflow: "hidden",
+        minHeight: "100vh",
+        display: "flex",
+        alignItems: "center",
+      }}
     >
       <Stack
         direction={{ xs: "column", md: "row" }}
@@ -145,11 +129,28 @@ export default function Hero() {
                 fontWeight: 400,
                 color: "#B0B0B0",
                 fontFamily: manrope.style.fontFamily,
-                lineHeight: "1.6",
+                lineHeight: "1.8",
               }}
             >
-              A full-stack developer passionate about building accessible and
-              user-friendly websites.
+              Full-Stack Developer specializing in modern web technologies, delivering scalable solutions with a focus on user experience and performance.
+            </Typography>
+          </motion.div>
+
+          {/* Professional Role */}
+          <motion.div variants={buttonVariant}>
+            <Typography
+              variant="h6"
+              sx={{
+                paddingTop: "1rem",
+                fontSize: { xs: "1rem", sm: "1.2rem" },
+                fontWeight: 300,
+                color: "#FF0080",
+                fontFamily: manrope.style.fontFamily,
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+              }}
+            >
+              Front-End & Back-End Expertise
             </Typography>
           </motion.div>
 
@@ -163,28 +164,60 @@ export default function Hero() {
                 justifyContent: { xs: "center", md: "flex-start" },
               }}
             >
-              <motion.div {...hoverEffect}>
-                <CustomButton 
-                  label="Contact Me"
-                  icon={<FaCircle size={10} />}
-                  onClick={() => {
-                    <ScrollLink
-                      to="contact"> 
-                    </ScrollLink>
-                  }}
-                  sx={{
-                    background: "linear-gradient(45deg, #FF0080, #7700FF)",
-                    color: "white",
-                    padding: "0.8rem 2rem",
-                    fontSize: "1rem",
-                    borderRadius: "50px",
-                    width: "fit-content",
-                    "&:hover": {
-                      background: "linear-gradient(45deg, #7700FF, #FF0080)",
-                    },
-                  }}
-                />
-              </motion.div>
+              <ScrollLink
+                to="contact"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                style={{ textDecoration: "none" }}
+              >
+                <motion.div {...hoverEffect}>
+                  <CustomButton
+                    label="Contact Me"
+                    icon={<FaCircle size={10} />}
+                    sx={{
+                      background: "linear-gradient(45deg, #FF0080, #7700FF)",
+                      color: "white",
+                      padding: "0.8rem 2rem",
+                      fontSize: "1rem",
+                      borderRadius: "50px",
+                      width: "fit-content",
+                      "&:hover": {
+                        background: "linear-gradient(45deg, #7700FF, #FF0080)",
+                      },
+                    }}
+                  />
+                </motion.div>
+              </ScrollLink>
+              <ScrollLink
+                to="projects"
+                spy={true}
+                smooth={true}
+                offset={-70}
+                duration={500}
+                style={{ textDecoration: "none" }}
+              >
+                <motion.div {...hoverEffect}>
+                  <CustomButton
+                    label="View My Work"
+                    icon={<FaCircle size={10} />}
+                    sx={{
+                      background: "transparent",
+                      color: "#FF0080",
+                      border: "2px solid #FF0080",
+                      padding: "0.8rem 2rem",
+                      fontSize: "1rem",
+                      borderRadius: "50px",
+                      width: "fit-content",
+                      "&:hover": {
+                        background: "#FF0080",
+                        color: "white",
+                      },
+                    }}
+                  />
+                </motion.div>
+              </ScrollLink>
             </Stack>
           </motion.div>
 
@@ -232,45 +265,6 @@ export default function Hero() {
             ))}
           </Stack>
         </Box>
-
-        {/* Right Section (Image) */}
-        <motion.div
-        variants={rotateImage}
-        initial="hidden"
-        animate="visible"
-        style={{
-          flex: 1,
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <Image
-          src="/profile.jpg"
-          alt="esraa"
-          width={500}
-          height={600}
-          style={{
-            borderRadius: "2rem",
-            objectFit: "cover",
-            border: "5px solid transparent",
-            boxShadow: "0 8px 15px rgba(0, 0, 0, 0.2)",
-            background: "linear-gradient(45deg, #FF0080, #7700FF)",
-            padding: "5px",
-            transition: "transform 0.5s, box-shadow 0.5s",
-          }}
-          loading="lazy"
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = "scale(1.05)";
-            e.currentTarget.style.boxShadow = "0 12px 25px rgba(0, 0, 0, 0.3)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "scale(1)";
-            e.currentTarget.style.boxShadow = "0 8px 15px rgba(0, 0, 0, 0.2)";
-          }}
-        />
-      </motion.div>
-
       </Stack>
     </motion.div>
   );

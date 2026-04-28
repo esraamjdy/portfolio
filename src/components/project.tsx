@@ -17,188 +17,217 @@ const ProjectCard: React.FC<{
   description: string;
   year: string;
   role: string;
-  demo?: string; 
-  repo: string;
+  demo?: string;
+  repo?: string;
 }> = ({ image, title, projectType, description, year, role, demo, repo }) => {
   return (
     <Box
       sx={{
-        backgroundColor: "#111", 
+        background: "linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01))",
+        border: "1px solid rgba(255, 255, 255, 0.08)",
+        backdropFilter: "blur(18px)",
+        WebkitBackdropFilter: "blur(18px)",
         width: "100%",
-        height: "auto",
-        borderRadius: "1.6rem",
+        borderRadius: "2rem",
         display: "flex",
         flexDirection: { xs: "column", lg: "row" },
-        padding: "3rem",
-        gap: "3rem",
+        padding: "2.5rem",
+        gap: "2rem",
         fontFamily: manrope.style.fontFamily,
-        transition: "transform 0.3s ease, box-shadow 0.3s ease", 
+        transition: "transform 0.3s ease, box-shadow 0.3s ease",
+        overflow: "hidden",
         "&:hover": {
-          transform: "scale(1.05)", 
-          boxShadow: "0px 10px 30px rgba(0, 0, 0, 0.2)", 
+          transform: "translateY(-6px)",
+          boxShadow: "0 20px 60px rgba(0, 0, 0, 0.25)",
         },
       }}
     >
       <Box
         sx={{
-          width: { lg: "40%", xs: "100%" },
-          display: "flex",
-          justifyContent: "center",
-          align: "center",
-          backgroundColor: "#333333",
-          borderRadius: "1.2rem",
-          padding: "1rem",
-          overflow: "hidden", 
+          flex: { lg: "0 0 42%", xs: "1 1 100%" },
+          minHeight: "260px",
+          borderRadius: "1.8rem",
+          overflow: "hidden",
+          position: "relative",
+          backgroundColor: "rgba(255, 255, 255, 0.03)",
+          boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.05)",
         }}
       >
         <Image
           src={image}
           alt={title}
-          width={500}
-          height={400}
+          fill
           style={{
-            borderRadius: "1.2rem",
-            width: "100%",
-            height: "auto",
             objectFit: "cover",
-            transition: "transform 0.3s ease",
+            filter: "saturate(1.05) brightness(0.9)",
           }}
         />
       </Box>
 
       <Box
         sx={{
-          width: { lg: "60%", xs: "100%" },
-          backgroundColor: "transparent",
+          flex: 1,
           display: "flex",
           flexDirection: "column",
-          justifyContent: "center",
-          gap: "1.5rem",
-          marginLeft: { lg: "1.5rem", xs: "0" },
-          marginTop: { lg: "4rem", xs: "1rem" },
+          justifyContent: "space-between",
+          gap: "1.75rem",
         }}
       >
-        <Stack sx={{ marginBottom: "5rem" }}>
+        <Box>
+          <Stack
+            direction="row"
+            justifyContent="space-between"
+            alignItems="flex-start"
+            flexWrap="wrap"
+            spacing={2}
+          >
+            <Typography
+              sx={{
+                fontSize: "0.95rem",
+                fontWeight: 700,
+                color: "#FF70B7",
+                letterSpacing: "0.2rem",
+                textTransform: "uppercase",
+                lineHeight: 1.2,
+              }}
+            >
+              {projectType}
+            </Typography>
+            <Typography
+              sx={{
+                fontSize: "1rem",
+                fontWeight: 500,
+                color: "#B0B0B0",
+              }}
+            >
+              {year}
+            </Typography>
+          </Stack>
+
           <Typography
             sx={{
-              fontSize: { lg: "2.4rem", xs: "2rem" },
-              fontWeight: "500",
-              color: "#fff",
-              lineHeight: "1.3",
-              fontFamily: manrope.style.fontFamily,
+              fontSize: { lg: "2rem", xs: "1.75rem" },
+              fontWeight: 600,
+              color: "#FFFFFF",
+              lineHeight: 1.1,
+              marginTop: "1rem",
             }}
           >
             {title}
           </Typography>
+
           <Typography
             sx={{
-              fontSize: { lg: "1.4rem", xs: "1rem" },
-              fontWeight: "200",
-              color: "#b0b0b0",
-              lineHeight: "1.2",
-              fontFamily: manrope.style.fontFamily,
+              fontSize: "1.05rem",
+              fontWeight: 300,
+              color: "#d0d0d0",
+              lineHeight: 1.8,
               marginTop: "1.5rem",
+              maxWidth: "100%",
             }}
           >
             {description}
           </Typography>
-          <Box>
-            <Typography
-              sx={{
-                fontSize: "1.4rem",
-                fontWeight: "500",
-                color: "#fff",
-                marginTop: "1.5rem",
-                marginBottom: "1rem",
-                lineHeight: "1.6",
-              }}
-            >
-              PROJECT INFO
-            </Typography>
-            <Divider sx={{ marginBottom: "1.5rem", borderColor: "#555" }} />
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                paddingBottom: "1rem",
-              }}
-            >
+        </Box>
+
+        <Box
+          sx={{
+            backgroundColor: "rgba(255,255,255,0.03)",
+            borderRadius: "1.4rem",
+            border: "1px solid rgba(255,255,255,0.08)",
+            padding: "1.5rem",
+          }}
+        >
+          <Typography
+            sx={{
+              fontSize: "1.2rem",
+              fontWeight: 600,
+              color: "#FFFFFF",
+              marginBottom: "1rem",
+            }}
+          >
+            Project Details
+          </Typography>
+          <Box
+            sx={{
+              display: "grid",
+              gridTemplateColumns: { xs: "1fr", sm: "1fr 1fr" },
+              gap: "1rem",
+            }}
+          >
+            <Box>
               <Typography
                 sx={{
-                  fontSize: "1.4rem",
-                  color: "#fff",
-                  fontWeight: "400",
-                  fontFamily: manrope.style.fontFamily,
-                }}
-              >
-                Year
-              </Typography>
-              <Typography
-                sx={{
-                  fontSize: "1.4rem",
-                  color: "#b0b0b0",
-                  fontWeight: "300",
-                  fontFamily: manrope.style.fontFamily,
-                }}
-              >
-                {year}
-              </Typography>
-            </Box>
-            <Divider sx={{ borderColor: "#555" }} />
-            <Box
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                paddingY: "1rem",
-              }}
-            >
-              <Typography
-                sx={{
-                  fontSize: "1.4rem",
-                  color: "#fff",
-                  fontWeight: "500",
-                  fontFamily: manrope.style.fontFamily,
+                  fontSize: "0.9rem",
+                  color: "#B0B0B0",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.12rem",
+                  marginBottom: "0.5rem",
                 }}
               >
                 Role
               </Typography>
               <Typography
                 sx={{
-                  fontSize: "1.4rem",
-                  color: "#b0b0b0",
-                  fontWeight: "400",
-                  fontFamily: manrope.style.fontFamily,
+                  fontSize: "1rem",
+                  color: "#FFFFFF",
+                  fontWeight: 400,
                 }}
               >
                 {role}
               </Typography>
             </Box>
-            <Divider sx={{ borderColor: "#555" }} />
+            <Box>
+              <Typography
+                sx={{
+                  fontSize: "0.9rem",
+                  color: "#B0B0B0",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.12rem",
+                  marginBottom: "0.5rem",
+                }}
+              >
+                Year
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "1rem",
+                  color: "#FFFFFF",
+                  fontWeight: 400,
+                }}
+              >
+                {year}
+              </Typography>
+            </Box>
           </Box>
-          <Box
-            sx={{
-              display: "flex",
-              gap: "1.5rem",
-              marginTop: "2rem",
-            }}
-          >
-            {demo && ( 
-              <CustomLink
-                link={demo}
-                children={
-                  <>
-                    LIVE DEMO
-                    <MdArrowOutward
-                      style={{
-                        marginLeft: "8px",
-                        fontWeight: "700",
-                        fontSize: "1.8rem",
-                      }}
-                    />
-                  </>
-                }
-              />
-            )}
+        </Box>
+
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: "wrap",
+            gap: "1rem",
+            alignItems: "center",
+          }}
+        >
+          {demo && (
+            <CustomLink
+              link={demo}
+              children={
+                <>
+                  LIVE DEMO
+                  <MdArrowOutward
+                    style={{
+                      marginLeft: "8px",
+                      fontWeight: "700",
+                      fontSize: "1.6rem",
+                    }}
+                  />
+                </>
+              }
+            />
+          )}
+          {repo && (
             <CustomLink
               link={repo}
               children={
@@ -208,17 +237,17 @@ const ProjectCard: React.FC<{
                     style={{
                       marginLeft: "8px",
                       fontWeight: "700",
-                      fontSize: "1.7rem",
+                      fontSize: "1.6rem",
                     }}
                   />
                 </>
               }
             />
-          </Box>
-        </Stack>
+          )}
+        </Box>
       </Box>
     </Box>
-  );  
+  );
 };
 
 export default ProjectCard;
